@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>câu 2</title>
+</head>
+<body>
+<script>
+    let arr = [1, 2, 3, 4,5, 6, 7, 8,-8, 9];
+
+    document.write('Trước khi xóa phần tử', arr + "<br><br>"  );
+
+
+    function checkIndex() {
+        number = parseInt(prompt('nhập vị trí phần tử cần xóa',));
+        if (number < 0 || isNaN(number) || number > arr.length ) {
+            alert('Bạn nhập không đúng số hoặc bạn nhập lớn hơn số phần tử trong mảng');
+
+            document.write('Hàm không có phần tử xóa trả về ban đầu <br><br>' + arr)
+        }  else {
+            RemoveFromArray()
+        }
+
+    }
+
+    function RemoveFromArray() {
+
+        arr.splice(number, 1);
+        document.write('Sau khi xóa phần tử ', arr)
+    }
+
+
+    checkIndex()
+</script>
+</body>
+</html>

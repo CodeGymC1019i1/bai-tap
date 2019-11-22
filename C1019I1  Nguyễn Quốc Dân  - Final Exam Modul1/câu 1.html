@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>câu 1</title>
+</head>
+<body>
+<script>
+    function findMinScore(listScore) {
+        let min = listScore[0];
+        if (listScore.length < 1)
+            return 'Điểm không hợp lệ, không thể tìm';
+        else {
+            for (let i = 1; i < listScore.length; i++)
+                if ( listScore[i] < min)
+                    min = listScore[i];
+        }
+        return min;
+    }
+    let arr = [0,5,8,9,4];
+    alert('Điểm thấp nhất :' + " " + findMinScore(arr));
+</script>
+</body>
+</html>
