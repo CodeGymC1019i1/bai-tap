@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circles in Canvas</title>
+</head>
+<body onkeydown="randomcircles()">
+    <script>
+        let Canvas  = function (width,height,id) {
+            this.width = width;
+            this.height = height;
+            this.id = id;
+
+            this.createCanvas = function () {
+                document.write('<canvas id = "canvas'+this.id+'" width="600" height="250" style="border: 1px solid black"></canvas>');
+            }
+        }
+        let Circle = function ( radius) {
+            this.radius = radius;
+
+            this.draw = function () {
+                let id = Math.floor(Math.random()*4);
+                let canvas = document.getElementById("canvas"+id);
+                let ctx =canvas.getContext("2d");
+                let x = Math.random()*canvas.width;
+                let y = Math.random()*canvas.height;
+                ctx.beginPath();
+                ctx.arc(x,y,this.radius,0,2*Math.PI);
+                ctx.stroke();
+                ctx.fillStyle = "red";
+                ctx.fill();
+            }
+
+        }
+
+        function createMultiCanvas(){
+            for (let i = 0; i < 4; i++) {
+                let canvas = new Canvas(600,250,i);
+                canvas.createCanvas();
+
+            }
+        }
+
+        function main() {
+            createMultiCanvas();
+            let circle = new Circle(20);
+            circle.draw();
+        }
+        function randomcircles() {
+            for (let i = 0; i < 4; i++) {
+                let canvas = document.getElementById("canvas"+i);
+                let ctx =canvas.getContext("2d");
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+            }
+            let circle = new Circle(20);
+            circle.draw();
+        }
+
+        main();
+    </script>
+</body>
+</html>
